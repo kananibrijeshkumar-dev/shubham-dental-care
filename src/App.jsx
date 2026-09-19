@@ -11,21 +11,21 @@ import Contact from './pages/Contact';
 import DentalTourism from './pages/DentalTourism';
 
 const Header = () => (
-  <header>
-    <div className="top-bar">
+  <header className="glass-header">
+    <div className="top-bar" style={{ backgroundColor: 'transparent', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Link to="/">
-          <Logo size={50} variant="dark" />
+          <Logo size={50} variant="light" />
         </Link>
         <div className="top-bar-contact">
           <div style={{ display: 'flex', gap: '15px', marginRight: '15px' }}>
-            <a href="#" style={{ color: 'var(--primary)' }}><Facebook size={20} /></a>
-            <a href="#" style={{ color: 'var(--primary)' }}><Instagram size={20} /></a>
-            <a href="#" style={{ color: 'var(--primary)' }}><MessageCircle size={20} /></a>
+            <a href="#" style={{ color: 'var(--secondary)' }}><Facebook size={22} /></a>
+            <a href="#" style={{ color: 'var(--secondary)' }}><Instagram size={22} /></a>
+            <a href="#" style={{ color: 'var(--secondary)' }}><MessageCircle size={22} /></a>
           </div>
-          <span><MapPin size={20} color="var(--secondary)" /> Nikol, Ahmedabad</span>
-          <span><Phone size={20} color="var(--secondary)" /> +91 98765 43210</span>
-          <Link to="/contact" className="btn btn-primary" style={{ padding: '10px 20px', marginLeft: '10px' }}>Request Appointment</Link>
+          <span style={{ color: 'var(--text-light)' }}><MapPin size={20} color="var(--secondary)" /> Nikol, Ahmedabad</span>
+          <span style={{ color: 'var(--text-light)' }}><Phone size={20} color="var(--secondary)" /> +91 98765 43210</span>
+          <Link to="/contact" className="btn btn-secondary" style={{ padding: '12px 24px', marginLeft: '10px' }}>Request Appointment</Link>
         </div>
       </div>
     </div>
@@ -99,11 +99,11 @@ const Footer = () => (
 const WhatsAppWidget = () => (
   <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" style={{
     position: 'fixed', bottom: '30px', right: '30px', zIndex: 1000,
-    backgroundColor: '#25D366', color: 'white', width: '60px', height: '60px',
+    backgroundColor: '#25D366', color: 'white', width: '64px', height: '64px',
     borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center',
-    boxShadow: '0 10px 20px rgba(37,211,102,0.3)', transition: 'transform 0.3s'
+    boxShadow: '0 10px 25px rgba(37,211,102,0.4)', transition: 'all 0.3s'
   }}>
-    <MessageCircle size={30} />
+    <MessageCircle size={32} />
   </a>
 );
 
