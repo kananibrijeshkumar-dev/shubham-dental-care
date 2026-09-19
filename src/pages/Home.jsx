@@ -28,25 +28,31 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Quick Services Section */}
+      {/* The Clinic Experience Section (Using User Uploaded Images) */}
       <section className="container" style={{ padding: '80px 20px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: 'clamp(32px, 5vw, 45px)', color: 'var(--primary)', marginBottom: '15px' }}>Comprehensive Dental Care</h2>
-        <p style={{ maxWidth: '700px', margin: '0 auto 50px', fontSize: '18px', color: 'var(--text-dark)' }}>From routine family checkups to complex dental implants and cosmetic makeovers, we offer everything you need under one roof.</p>
+        <h2 style={{ fontSize: 'clamp(32px, 5vw, 45px)', color: 'var(--primary)', marginBottom: '15px' }}>The Shubham Experience</h2>
+        <p style={{ maxWidth: '700px', margin: '0 auto 50px', fontSize: '18px', color: 'var(--text-dark)' }}>Experience world-class dental treatments in a highly sterilized, comfortable, and state-of-the-art clinic right here in Ahmedabad.</p>
         
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
           {[
-            { title: 'Dental Implants', desc: 'Permanent, natural-looking replacement for missing teeth.' },
-            { title: 'Cosmetic Dentistry', desc: 'Smile makeovers, veneers, and professional whitening.' },
-            { title: 'NRI & Dental Tourism', desc: 'World-class treatments and travel coordination for international patients.' }
-          ].map((service, index) => (
+            { img: '/clinic-2.png', delay: 0 },
+            { img: '/clinic-3.png', delay: 0.1 },
+            { img: '/clinic-4.png', delay: 0.2 },
+            { img: '/clinic-5.png', delay: 0.3 }
+          ].map((item, index) => (
             <motion.div 
               key={index}
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: index * 0.1 }}
-              style={{ padding: '40px 30px', backgroundColor: 'var(--bg-gray)', borderRadius: '12px' }}
-            >
-              <h3 style={{ fontSize: '24px', marginBottom: '15px' }}>{service.title}</h3>
-              <p style={{ color: 'var(--text-dark)', lineHeight: '1.6' }}>{service.desc}</p>
-            </motion.div>
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: item.delay }}
+              style={{ 
+                width: '100%', 
+                paddingTop: '150%', // Aspect ratio for vertical stories
+                backgroundImage: `url(${item.img})`, 
+                backgroundSize: 'cover', 
+                backgroundPosition: 'center',
+                borderRadius: '16px',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+              }}
+            />
           ))}
         </div>
       </section>
