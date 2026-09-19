@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { Phone, MapPin, MessageCircle, Facebook, Instagram } from 'lucide-react';
+import { Phone, MapPin, MessageCircle, Facebook, Instagram, Menu, X } from 'lucide-react';
 import { Logo } from './components/Logo';
 import Home from './pages/Home';
 import FamilyDentistry from './pages/FamilyDentistry';
@@ -10,41 +10,47 @@ import PatientInfo from './pages/PatientInfo';
 import Contact from './pages/Contact';
 import DentalTourism from './pages/DentalTourism';
 
-const Header = () => (
-  <header className="glass-header">
-    <div className="top-bar" style={{ backgroundColor: 'transparent', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Link to="/">
-          <Logo size={50} variant="light" />
-        </Link>
-        <div className="top-bar-contact">
-          <div style={{ display: 'flex', gap: '15px', marginRight: '15px' }}>
-            <a href="#" style={{ color: 'var(--secondary)' }}><Facebook size={22} /></a>
-            <a href="#" style={{ color: 'var(--secondary)' }}><Instagram size={22} /></a>
-            <a href="#" style={{ color: 'var(--secondary)' }}><MessageCircle size={22} /></a>
+const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header className="glass-header">
+      <div className="top-bar">
+        <div className="container">
+          <Link to="/" onClick={() => setMenuOpen(false)}>
+            <Logo size={40} variant="light" />
+          </Link>
+          
+          <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+
+          <div className="top-bar-contact">
+            <div style={{ display: 'flex', gap: '15px', marginRight: '15px' }}>
+              <a href="#" style={{ color: 'var(--secondary)' }}><Facebook size={22} /></a>
+              <a href="#" style={{ color: 'var(--secondary)' }}><Instagram size={22} /></a>
+            </div>
+            <span style={{ color: 'var(--text-light)' }}><MapPin size={18} color="var(--secondary)" /> Nikol, Ahmedabad</span>
+            <span style={{ color: 'var(--text-light)' }}><Phone size={18} color="var(--secondary)" /> +91 98765 43210</span>
           </div>
-          <span style={{ color: 'var(--text-light)' }}><MapPin size={20} color="var(--secondary)" /> Nikol, Ahmedabad</span>
-          <span style={{ color: 'var(--text-light)' }}><Phone size={20} color="var(--secondary)" /> +91 98765 43210</span>
-          <Link to="/contact" className="btn btn-secondary" style={{ padding: '12px 24px', marginLeft: '10px' }}>Request Appointment</Link>
         </div>
       </div>
-    </div>
-    
-    <nav className="main-nav">
-      <div className="container">
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">Our Practice</Link></li>
-          <li><Link to="/services/family-dentistry">Services</Link></li>
-          <li><Link to="/dental-tourism">Dental Tourism</Link></li>
-          <li><Link to="/gallery">Smile Gallery</Link></li>
-          <li><Link to="/patient-info">Patient Info</Link></li>
-          <li><Link to="/contact">Contact Us</Link></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-);
+      
+      <nav className={`main-nav ${menuOpen ? 'open' : ''}`}>
+        <div className="container">
+          <ul>
+            <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+            <li><Link to="/about" onClick={() => setMenuOpen(false)}>Our Practice</Link></li>
+            <li><Link to="/services/family-dentistry" onClick={() => setMenuOpen(false)}>Services</Link></li>
+            <li><Link to="/dental-tourism" onClick={() => setMenuOpen(false)}>Dental Tourism</Link></li>
+            <li><Link to="/gallery" onClick={() => setMenuOpen(false)}>Smile Gallery</Link></li>
+            <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  );
+};
 
 const Footer = () => (
   <footer className="footer">
@@ -98,12 +104,12 @@ const Footer = () => (
 
 const WhatsAppWidget = () => (
   <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" style={{
-    position: 'fixed', bottom: '30px', right: '30px', zIndex: 1000,
-    backgroundColor: '#25D366', color: 'white', width: '64px', height: '64px',
+    position: 'fixed', bottom: '20px', right: '20px', zIndex: 1000,
+    backgroundColor: '#25D366', color: 'white', width: '60px', height: '60px',
     borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center',
     boxShadow: '0 10px 25px rgba(37,211,102,0.4)', transition: 'all 0.3s'
   }}>
-    <MessageCircle size={32} />
+    <MessageCircle size={30} />
   </a>
 );
 

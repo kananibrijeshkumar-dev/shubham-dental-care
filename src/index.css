@@ -1,14 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600;700&family=Lato:wght@300;400;700;900&display=swap');
 
 :root {
-  /* Premium Indian Healthcare Palette */
-  --primary: #0F4C81; /* Deep Royal Blue - Clinical Trust */
-  --secondary: #D4AF37; /* Rich Gold / Saffron - Premium Indian Touch */
-  --text-dark: #222222; /* Soft Charcoal */
+  --primary: #0F4C81;
+  --secondary: #D4AF37;
+  --text-dark: #222222;
   --text-light: #FFFFFF;
   --bg-light: #FFFFFF;
   --bg-gray: #F4F7F6;
-  
   --font-primary: 'Lato', sans-serif;
   --font-secondary: 'Cormorant SC', serif;
 }
@@ -21,6 +19,7 @@ body {
   font-family: var(--font-primary); 
   -webkit-font-smoothing: antialiased; 
   overflow-x: hidden;
+  width: 100vw;
 }
 
 h1, h2, h3, h4, h5, h6 { 
@@ -113,9 +112,9 @@ a { text-decoration: none; transition: all 0.3s ease; }
 
 /* Header Styles */
 .top-bar {
-  background-color: var(--bg-light);
+  background-color: transparent;
   padding: 15px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .top-bar .container {
   display: flex;
@@ -132,9 +131,6 @@ a { text-decoration: none; transition: all 0.3s ease; }
 }
 .top-bar-contact span { display: flex; align-items: center; gap: 8px; }
 
-.main-nav {
-  padding: 0;
-}
 .main-nav ul {
   display: flex;
   list-style: none;
@@ -160,9 +156,19 @@ a { text-decoration: none; transition: all 0.3s ease; }
 }
 .main-nav ul li a:hover::after { width: 100%; }
 
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
 /* Footer Styles */
 .footer {
-  background-color: #082A4A; /* Very Dark Royal Blue */
+  background-color: #082A4A;
   color: var(--text-light);
   padding: 80px 0 30px;
   margin-top: 80px;
@@ -218,8 +224,55 @@ a { text-decoration: none; transition: all 0.3s ease; }
   background: rgba(255,255,255,0.9);
 }
 .form-control:focus { outline: none; border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2); background: #fff;}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+
+/* Testimonials */
+.testimonial-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.03);
+  text-align: left;
+}
+.stars { color: #FFB800; font-size: 20px; margin-bottom: 15px; }
 
 /* Utility */
 .text-center { text-align: center; }
 .mt-40 { margin-top: 40px; }
 .mb-20 { margin-bottom: 20px; }
+
+/* ========================================= */
+/* Responsive Media Queries (Mobile First)   */
+/* ========================================= */
+@media (max-width: 1024px) {
+  .top-bar-contact span:nth-child(2) { display: none; } /* Hide address on tablet */
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .page-hero h1 { font-size: 45px; }
+}
+
+@media (max-width: 768px) {
+  .top-bar-contact { display: none; } /* Hide all top bar contact info on mobile */
+  .mobile-menu-btn { display: block; } /* Show hamburger menu */
+  
+  .main-nav { display: none; } /* Hide main nav by default on mobile */
+  .main-nav.open { 
+    display: block; 
+    position: absolute; 
+    top: 100%; left: 0; right: 0; 
+    background: var(--primary); 
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .main-nav ul { flex-direction: column; }
+  .main-nav ul li a { padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  
+  .page-hero h1 { font-size: 38px; }
+  .page-hero p { font-size: 18px; }
+  
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  .footer { padding: 50px 0 20px; }
+  
+  .form-row { grid-template-columns: 1fr; gap: 15px; } /* Stack form inputs */
+  .inquiry-form { padding: 25px; }
+  .btn { width: 100%; padding: 14px 20px; }
+}
