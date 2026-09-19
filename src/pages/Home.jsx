@@ -13,16 +13,16 @@ const Home = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}
+            style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}
           >
             <h2 className="secondary-heading" style={{ color: 'var(--secondary)', marginBottom: '20px' }}>Shubham Dental Care Studio</h2>
             <h1 style={{ fontSize: 'clamp(40px, 6vw, 64px)', lineHeight: '1.2' }}>Modern Dentistry.<br/>A More Confident Smile.</h1>
-            <p style={{ margin: '30px auto', color: 'rgba(255,255,255,0.9)', fontSize: 'clamp(18px, 2vw, 22px)', lineHeight: '1.6', maxWidth: '600px' }}>
-              Personalized, premium dental care in Nikol, Ahmedabad. We combine advanced clinical technology with luxurious hospitality.
+            <p style={{ margin: '30px auto', color: 'rgba(255,255,255,0.9)', fontSize: 'clamp(18px, 2vw, 22px)', lineHeight: '1.6', maxWidth: '700px' }}>
+              Led by Dr. Bhavik Patel (18 Years of Excellence). Personalized, premium dental care in Nikol, Ahmedabad for local and NRI clients.
             </p>
             <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <a href="#appointment" className="btn btn-secondary">Book Appointment</a>
-              <Link to="/about" className="btn btn-primary" style={{ backgroundColor: 'transparent', borderColor: 'rgba(255,255,255,0.4)' }}>Meet The Doctor</Link>
+              <Link to="/about" className="btn btn-primary" style={{ backgroundColor: 'transparent', borderColor: 'rgba(255,255,255,0.4)' }}>Meet Dr. Patel</Link>
             </div>
           </motion.div>
         </div>
@@ -37,7 +37,7 @@ const Home = () => {
           {[
             { title: 'Dental Implants', desc: 'Permanent, natural-looking replacement for missing teeth.' },
             { title: 'Cosmetic Dentistry', desc: 'Smile makeovers, veneers, and professional whitening.' },
-            { title: 'Family Care', desc: 'Gentle, preventative dentistry for children and adults.' }
+            { title: 'NRI & Dental Tourism', desc: 'World-class treatments and travel coordination for international patients.' }
           ].map((service, index) => (
             <motion.div 
               key={index}

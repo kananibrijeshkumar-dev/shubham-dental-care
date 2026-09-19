@@ -31,7 +31,9 @@ const About = () => {
             <div style={{ padding: '40px', textAlign: 'center' }}>
               <h3 style={{ fontSize: '28px', marginBottom: '10px' }}>Dr. Bhavik Patel</h3>
               <p style={{ color: 'var(--secondary)', fontWeight: 'bold', letterSpacing: '1.5px', textTransform: 'uppercase', fontSize: '13px', marginBottom: '20px' }}>Lead Dental Surgeon</p>
-              <p style={{ color: 'var(--text-dark)', lineHeight: '1.7', fontSize: '16px' }}>Dr. Patel brings years of advanced training in dental implants and comprehensive cosmetic dentistry to Ahmedabad.</p>
+              <p style={{ color: 'var(--text-dark)', lineHeight: '1.7', fontSize: '16px' }}>
+                With over 18 years of clinical practice, Dr. Patel brings vast experience in dental implants and comprehensive cosmetic dentistry to Ahmedabad. He is highly sought after, frequently consulting with NRI clients and leading a successful dental tourism program for international patients.
+              </p>
             </div>
           </motion.div>
 
